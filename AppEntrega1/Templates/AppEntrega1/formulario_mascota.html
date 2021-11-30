@@ -1,0 +1,15 @@
+{% extends 'AppEntrega1/inicio.html' %}
+{% block head_block %}
+    <title>Crear Mascotas</title>
+{% endblock head_block %}
+
+{% block body_block %}
+    <h1>Crear Mascota</h1>
+
+    <form action={% url 'Crear_mascota' %} method="POST">
+        {% csrf_token %}
+        {{formulario1.as_table}}
+        <input type="submit" value="Crear"/>
+    </form>
+
+{% endblock body_block %}

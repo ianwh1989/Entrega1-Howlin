@@ -1,0 +1,35 @@
+{% extends 'AppEntrega1/inicio.html' %}
+{% block head_block %}
+    <title>Casas</title>
+{% endblock head_block %}
+
+{% block body_block %}
+    <h1>Casas</h1> <a href={% url 'Crear_casa' %}>Crear casa</a>
+
+    <form action={% url 'Casas' %} method="GET">
+        <input type="text" name='numero' placeholder="Numero a buscar..."/>
+        <input type="submit" value="Buscar"/>
+    </form>
+
+    <ul>
+    {% if casas %}
+        {% for casa in casas %}
+            <li>
+                {{casa}}
+            </li>
+        {% endfor %}
+    {% elif error%}
+        <h3>{{error}}</h3>
+    {% else %}
+        <h3>No se encontraron casas con ese numero</h3>
+    {% endif %}    
+    </ul>
+
+{% endblock body_block %}
+   
+   
+    
+
+
+    
+

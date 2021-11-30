@@ -4,9 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
+    {% block head_block %}
+    {% endblock head_block %}
 </head>
 <body>
-    <h1>Inicio</h1>
+    <nav>
+        <a href={% url 'inicio' %}>Inicio</a>
+        <a href={% url 'Casas' %}>Casas</a>
+        <a href={% url 'Mascotas' %}>Mascotas</a>
+        <a href={% url 'Vecinos' %}>Vecinos</a>
+    </nav>
+    {% block body_block %}
+    {% endblock body_block %}
 </body>
 </html>

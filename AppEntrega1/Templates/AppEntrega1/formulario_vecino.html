@@ -1,0 +1,15 @@
+{% extends 'AppEntrega1/inicio.html' %}
+{% block head_block %}
+    <title>Crear Vecinos</title>
+{% endblock head_block %}
+
+{% block body_block %}
+    <h1>Crear Vecino</h1>
+
+    <form action={% url 'Crear_vecino' %} method="POST">
+        {% csrf_token %}
+        {{formulario2.as_table}}
+        <input type="submit" value="Crear"/>
+    </form>
+
+{% endblock body_block %}

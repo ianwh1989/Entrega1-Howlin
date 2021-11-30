@@ -1,0 +1,35 @@
+{% extends 'AppEntrega1/inicio.html' %}
+{% block head_block %}
+    <title>Mascotas</title>
+{% endblock head_block %}
+
+{% block body_block %}
+    <h1>Mascotas</h1> <a href={% url 'Crear_mascota' %}>Crear Crear_mascota</a>
+
+    <form action={% url 'Mascotas' %} method="GET">
+        <input type="text" name='nombre' placeholder="Nombre a buscar..."/>
+        <input type="submit" value="Buscar"/>
+    </form>
+
+    <ul>
+    {% if mascotas %}
+        {% for mascota in mascotas %}
+            <li>
+                {{mascotas}}
+            </li>
+        {% endfor %}
+    {% elif error%}
+        <h3>{{error}}</h3>
+    {% else %}
+        <h3>No se encontraron mascotas con ese nombre</h3>
+    {% endif %}    
+    </ul>
+
+{% endblock body_block %}
+   
+   
+    
+
+
+    
+
