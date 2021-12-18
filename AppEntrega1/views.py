@@ -1,5 +1,6 @@
 from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
+from django.template import loader
 from .models import Casa, Mascota, Vecinos
 from .forms import CasasFormulario, MascotaFormulario, VecinoFormulario
 
@@ -91,3 +92,8 @@ def crear_vecino(request):
     
     formulario2 = VecinoFormulario()
     return render(request, 'AppEntrega1/formulario_vecino.html', {'formulario2': formulario2})
+
+def prueba_template(request):
+    template = loader.get_template('AppEntrega1/index.html')
+    documento = template.render({})
+    return HttpResponse(documento)

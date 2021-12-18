@@ -1,5 +1,5 @@
 from django.urls.conf import path
-from .views import inicio, lista_casas, lista_mascotas, lista_vecinos, crear_casa, crear_mascota, crear_vecino
+from .views import inicio, lista_casas, lista_mascotas, lista_vecinos, crear_casa, crear_mascota, crear_vecino, prueba_template
 
 urlpatterns = [
     path('', inicio, name='inicio'),
@@ -8,5 +8,6 @@ urlpatterns = [
     path('mascotas/', lista_mascotas, name='Mascotas'),
     path('casas/crear1/', crear_mascota, name='Crear_mascota'),
     path('vecinos/', lista_vecinos, name='Vecinos'),
-    path('casas/crear2/', crear_vecino, name='Crear_vecino')
+    path('casas/crear2/', crear_vecino, name='Crear_vecino'),
+    path('template/', prueba_template)
 ]
