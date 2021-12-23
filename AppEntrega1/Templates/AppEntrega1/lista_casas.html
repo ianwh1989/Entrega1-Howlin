@@ -10,7 +10,7 @@
         <input type="text" name='numero' placeholder="Numero a buscar..."/>
         <input type="submit" value="Buscar"/>
     </form>
-
+    <br>
     <ul>
     {% if casas %}
         {% for casa in casas %}
@@ -24,7 +24,7 @@
         <h3>No se encontraron casas con ese numero</h3>
     {% endif %}    
     </ul>
-
+    
 {% endblock body_block %}
    
    

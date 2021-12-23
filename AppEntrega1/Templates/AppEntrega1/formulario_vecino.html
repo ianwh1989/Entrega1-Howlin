@@ -8,7 +8,9 @@
 
     <form action={% url 'Crear_vecino' %} method="POST">
         {% csrf_token %}
-        {{formulario2.as_table}}
+        <table>
+            {{formulario2.as_table}}
+        </table>
         <input type="submit" value="Crear"/>
     </form>
 

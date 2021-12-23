@@ -1,0 +1,17 @@
+{% extends 'AppEntrega1/index.html' %}
+{% load static %}
+    
+{% block 'HeadLogin' %}
+    <title>Login</title>
+{% endblock 'HeadLogin' %}
+
+{% block 'Section' %}
+    <form action={% url 'crear' idestudiante %} method="POST">
+        {% csrf_token %}
+        <table>
+            {{formulario.as_table}}
+        </table>
+        <input type="submit" placeholder="Enviar"> 
+    </form>
+
+{% endblock 'Section' %}

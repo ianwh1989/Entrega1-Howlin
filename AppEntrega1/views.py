@@ -77,7 +77,7 @@ def lista_vecinos(request):
         else:
             vecinos = Vecinos.objects.filter(nombre=nombre)
             
-    return render(request, 'AppEntrega1/lista_vecinos.html', {'casas': vecinos, 'error': error})
+    return render(request, 'AppEntrega1/lista_vecinos.html', {'vecinos': vecinos, 'error': error})
 
 def crear_vecino(request):
     
@@ -92,8 +92,3 @@ def crear_vecino(request):
     
     formulario2 = VecinoFormulario()
     return render(request, 'AppEntrega1/formulario_vecino.html', {'formulario2': formulario2})
-
-def prueba_template(request):
-    template = loader.get_template('AppEntrega1/index.html')
-    documento = template.render({})
-    return HttpResponse(documento)

@@ -8,7 +8,7 @@ class Vecinos(models.Model):
     numero = models.IntegerField()
     
     def __str__(self):
-        return f'El vecino se llama {self.nombre}'
+        return f'El vecino se llama {self.nombre} {self.apellido}'
     
 class Mascota(models.Model):
     nombre = models.CharField(max_length=20)
@@ -16,7 +16,7 @@ class Mascota(models.Model):
     edad = models.IntegerField()
     
     def __str__(self):
-        return f'La mascota se llama {self.nombre}'
+        return f'La mascota se llama {self.nombre} y es un {self.animal}'
     
 class Casa(models.Model):
     escaleras = models.BooleanField()
@@ -24,4 +24,4 @@ class Casa(models.Model):
     cant_ventanas = models.IntegerField()
     
     def __str__(self):
-        return f'Casa numero {self.numero}'
+        return f'Casa numero {self.numero} tiene {self.cant_ventanas} ventanas'
