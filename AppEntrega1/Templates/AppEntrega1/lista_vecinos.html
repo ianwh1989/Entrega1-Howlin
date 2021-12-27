@@ -10,12 +10,11 @@
         <input type="text" name='nombre' placeholder="Nombre a buscar..."/>
         <input type="submit" value="Buscar"/>
     </form>
-
     <ul>
     {% if vecinos %}    
         {% for vecino in vecinos %}
             <li>
-                {{vecino}}
+                <p> Nombre del vecino: {{vecino.nombre}} {{vecino.apellido}} </p>
             </li>
         {% endfor %}    
     {% elif error%}

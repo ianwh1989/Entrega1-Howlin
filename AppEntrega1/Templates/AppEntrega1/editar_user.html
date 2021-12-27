@@ -1,21 +1,19 @@
 {% extends 'AppEntrega1/inicio.html' %}
 {% load static %}
-    
+
 {% block head_block %}
-    <title>Login</title>
+    <title>Editar User</title>
 {% endblock head_block %}
 
 {% block 'Section' %}
-    {% if error %}
-        <h3>{{mensaje}}</h3>
-    {% endif %}
+    <h3>Editar User</h3>
     
     <form action='' method="POST">
         {% csrf_token %}
         <table>
             {{form}}
         </table>
-        <input type="submit" placeholder="Login">
+        <input type="submit" placeholder="Enviar">
     </form>
 
 {% endblock 'Section' %}

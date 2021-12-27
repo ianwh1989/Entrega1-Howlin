@@ -17,10 +17,25 @@
                 <a href={% url 'Casas' %}>Casas</a>
                 <a href={% url 'Mascotas' %}>Mascotas</a>
                 <a href={% url 'Vecinos' %}>Vecinos</a>
-                <a class="btn btn-primary" href="#signup">Sign Up</a>
+                <a href={% url 'Editar' %}>Editar Usuario</a>
+                <a href={% url 'Editar_avatar' %}>Editar avatar</a>
+                {% if not request.user.is_authenticated %}
+                    <a class="btn btn-primary" href='Login'>Login</a>
+                {% else %}
+                    <p> 
+                        Bienvenido {{request.user.email}}
+                        <a class="btn btn-primary" href="{% url 'Logout' %}">Logout</a>
+                    </p>
+                {% endif %}
             </div>
 
         </nav>
+
+        {% if tiene_mensaje %}
+            <h3>{{mensaje}}</h3>
+            <img src={{url_avatar}} height='50'/>
+        {% endif %}
+        
         {% block body_block %}
         {% endblock body_block %}
 

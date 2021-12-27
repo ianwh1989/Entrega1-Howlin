@@ -7,7 +7,16 @@ Pasos a seguir para probar mi proyecto:
 - se agrego formato con js y css a las paginas
 - creacion de super user --> admin, pass: 123
 - registro de modelos en admin.py
+- creacion de CRUD
+- se creo el login y el logout
+- usuario creado --> username: user, password: pass123456
+- se creo un register
+- se agregaron los forms correspondientes en archivo forms.py de registro, editar y avatar
+- utilizacion de LoginRequiredMixin para vista de vecinos
+- utilizacion de decoradores para eliminar datos
 
 
-
-- se creo el login
+No funciona:
+- el login no se muestra
+- No se muestran las mascotas
+- cuando se genera un vecino nuevo va a un page not found

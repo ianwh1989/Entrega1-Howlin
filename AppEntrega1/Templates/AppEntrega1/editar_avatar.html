@@ -1,0 +1,17 @@
+{% extends 'AppEntrega1/inicio.html' %}
+{% load static %}
+
+{% block head_block %}
+    <title>Editar Avatar</title>
+{% endblock head_block %}
+
+{% block 'Section' %}
+    <h3>Editar Avatar</h3>
+    
+    <form action={% url 'Editar_Avatar' %} method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+            {{form.as_table}}
+        <input type="submit" placeholder="Enviar">
+    </form>
+
+{% endblock 'Section' %}

@@ -5,8 +5,16 @@
 
 {% block body_block %}
     <h1>Crear Casa</h1>
-
-    <form action={% url 'Crear_casa' %} method="POST">
+    
+    {%if casa%}
+        <p>
+            {{casa.escaleras}} {{casa.numero}}
+        </p>
+    {% endif %}   
+        
+    <a href={% url 'Casas' %}>Ver lista de casas</a>
+    
+    <form action={% url 'Crear_casa' idcasa %} method="POST">
         {% csrf_token %}
         <table>
             {{formulario.as_table}}

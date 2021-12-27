@@ -10,12 +10,12 @@
         <input type="text" name='nombre' placeholder="Nombre a buscar..."/>
         <input type="submit" value="Buscar"/>
     </form>
-
+    <br>
     <ul>
     {% if mascotas %}
         {% for mascota in mascotas %}
             <li>
-                {{mascota}}
+                {{mascota}}<br><a href={% url 'Crear_mascota' mascotas.id %}> Editar</a><br><a href={% url 'Eliminar_mascota' mascotas.id %}> Eliminar</a>
             </li>
         {% endfor %}
     {% elif error%}

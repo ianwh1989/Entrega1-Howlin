@@ -1,0 +1,12 @@
+{% extends 'AppEntrega1/inicio.html' %}
+{% block head_block %}
+    <title>Eliminar casa</title>
+{% endblock head_block %}
+
+{% block body_block %}
+<h1>Elemento eliminado</h1>
+    <a href={% url 'Casas' %}>Ir a listado de casas</a>
+    <p>
+        Se elimino la casa {{casa}}
+    </p>
+    {% endblock body_block %}

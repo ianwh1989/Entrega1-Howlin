@@ -4,7 +4,7 @@
 {% endblock head_block %}
 
 {% block body_block %}
-    <h1>Casas</h1> <a href={% url 'Crear_casa' %}>Crear casa</a>
+    <h1>Casas</h1> <a href={% url 'Crear_casa' 0 %}>Crear casa</a>
 
     <form action={% url 'Casas' %} method="GET">
         <input type="text" name='numero' placeholder="Numero a buscar..."/>
@@ -15,7 +15,7 @@
     {% if casas %}
         {% for casa in casas %}
             <li>
-                {{casa}}
+                {{casa}}<br><a href={% url 'Crear_casa' casa.id %}> Editar</a><br><a href={% url 'Eliminar_casa' casa.id %}> Eliminar</a>
             </li>
         {% endfor %}
     {% elif error%}

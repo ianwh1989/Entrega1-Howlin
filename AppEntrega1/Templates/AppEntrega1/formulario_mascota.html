@@ -6,6 +6,14 @@
 {% block body_block %}
     <h1>Crear Mascota</h1>
 
+    {%if mascota%}
+        <p>
+            {{mascota.nombre}} {{mascota.animal}}
+        </p>
+    {% endif %}
+
+    <a href={% url 'Mascotas' %}>Ver lista de mascotas</a> 
+    
     <form action={% url 'Crear_mascota' %} method="POST">
         {% csrf_token %}
         <table>
