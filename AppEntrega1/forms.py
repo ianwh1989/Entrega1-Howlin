@@ -20,7 +20,6 @@ class VecinoFormulario(forms.Form):
     apellido=forms.CharField(required=True)
     numero=forms.IntegerField()
     
-
 class RegistroUsuarioForm(UserCreationForm):
     email = forms.EmailField(label='Email')
     password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)

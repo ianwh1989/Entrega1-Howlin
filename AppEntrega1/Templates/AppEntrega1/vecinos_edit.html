@@ -1,0 +1,16 @@
+{% extends 'AppEntrega1/inicio.html' %}
+{% block head_block %}
+    <title>Editar Vecinos</title>
+{% endblock head_block %}
+
+{% block body_block %}
+    <h1>Editar Vecino</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Editar">
+    </form>
+    
+    <br><a href={% url 'Vecinos' %}>Volver al listado de vecinos</a> 
+
+{% endblock body_block %}

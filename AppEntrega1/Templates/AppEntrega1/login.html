@@ -5,12 +5,12 @@
     <title>Login</title>
 {% endblock head_block %}
 
-{% block 'Section' %}
+{% block body_block %}
     {% if error %}
         <h3>{{mensaje}}</h3>
     {% endif %}
     
-    <form action='' method="POST">
+    <form action={% url 'Login' %} method="POST">
         {% csrf_token %}
         <table>
             {{form}}
@@ -18,4 +18,4 @@
         <input type="submit" placeholder="Login">
     </form>
 
-{% endblock 'Section' %}
+{% endblock body_block %}

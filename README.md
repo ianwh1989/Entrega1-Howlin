@@ -15,10 +15,18 @@ Pasos a seguir para probar mi proyecto:
 - utilizacion de LoginRequiredMixin para vista de vecinos
 - utilizacion de decoradores para eliminar datos
 
+
 No funciona:
 - el login no se muestra
 - No se muestran las mascotas
 - cuando se genera un vecino nuevo va a un page not found
+
+Correcciones:
+- Se arreglo el login. Ahora se muestra.
+- Se muestran las mascotas
+- se arreglaron los vecinos. Clases basadas en vistas. Se pueden ver detalles y eliminar. A la hora de editar se crea uno nuevo en vez de editar.
+
+
 
 Video explicativo:
 https://drive.google.com/file/d/1ySLNoMOyX3PXpxtyGgeHEIPJgyF7LK0K/view?usp=sharing

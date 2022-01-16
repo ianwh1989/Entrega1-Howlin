@@ -4,7 +4,7 @@ from django.shortcuts import redirect, render
 from django.template import loader
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView, DeleteView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 # from django.urls import reverse_lazy
 
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
@@ -77,20 +77,20 @@ def eliminar_casa(request, id):
     return render(request, 'AppEntrega1/casa_eliminada.html', {'casas': casas})
 
 def lista_mascotas(request):
-    mascota = None
+    mascotas = None
     error = None
     if request.method == 'GET':
         nombre = request.GET.get('nombre', '')
         if nombre == '':
-            mascota = Mascota.objects.all()
+            mascotas = Mascota.objects.all()
         else:
             try:
                 nombre = str(nombre)
-                mascota = Mascota.objects.filter(nombre=nombre)
+                mascotas = Mascota.objects.filter(nombre=nombre)
             except:
                 error = 'Debes ingresar un nombre valido'
             
-    return render(request, 'AppEntrega1/lista_mascotas.html', {'mascota': mascota, 'error': error})
+    return render(request, 'AppEntrega1/lista_mascotas.html', {'mascotas': mascotas, 'error': error})
 
 def crear_mascota(request, id):
     id_mascota = 0
@@ -116,7 +116,7 @@ def crear_mascota(request, id):
             return redirect('Mascotas')    
                                 
     elif mascota:
-        formulario1 = MascotaFormulario({'nombre': mascotas.nombre,'animal': mascota.animal,'edad': mascota.edad})
+        formulario1 = MascotaFormulario({'nombre': mascota.nombre,'animal': mascota.animal,'edad': mascota.edad})
     else:
         formulario1 = MascotaFormulario()
     return render(request, 'AppEntrega1/formulario_mascota.html', {'formulario1': formulario1, 'idmascota': id_mascota})    
@@ -166,21 +166,30 @@ def eliminar_mascota(request, id):
 
 class VecinosCreateView(CreateView):
     model = Vecinos
-    success_url = 'vecinos/lista/'
+    success_url = '/vecinos/lista'
     fields = ['nombre', 'apellido', 'numero']
-    template_name = 'AppEntrega1/formulario_vecino.html'
+    # template_name = 'AppEntrega1/formulario_vecino.html'
+    
+class VecinosUpdateView(UpdateView):
+    model = Vecinos
+    success_url = '/vecinos/lista'
+    fields = ['nombre', 'apellido', 'numero']
+    # template_name = 'AppEntrega1/vecinos_edit.html'
+    template_name_suffix = '_edit'
     
 class VecinosDeleteView(DeleteView):
     model = Vecinos
-    success_url = 'AppEntrega1/vecinos/lista'
+    success_url = '/vecinos/lista'
     
 class VecinosDetailView(DetailView):
     model = Vecinos
-    template_name = 'AppEntrega1/detalle_vecino.html'
+    template_name = 'AppEntrega1/vecino_detalle.html'
     
 class VecinosListView(LoginRequiredMixin, ListView):
     model = Vecinos
     template_name = 'AppEntrega1/lista_vecinos.html'
+    queryset = Vecinos.objects.filter()
+    # queryset = Users.objects.filter
 
 def login_request(request):
     
@@ -270,7 +279,6 @@ def editar_avatar(request):
         form = AvatarForm()
     
     return render(request, 'AppEntrega1/editar_avatar.html', {'form': form})
-
 
 def error_404(request, exception):
         data = {}

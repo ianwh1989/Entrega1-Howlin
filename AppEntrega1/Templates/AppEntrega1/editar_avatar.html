@@ -5,7 +5,7 @@
     <title>Editar Avatar</title>
 {% endblock head_block %}
 
-{% block 'Section' %}
+{% block body_block %}
     <h3>Editar Avatar</h3>
     
     <form action={% url 'Editar_Avatar' %} method="POST" enctype="multipart/form-data">
@@ -14,4 +14,4 @@
         <input type="submit" placeholder="Enviar">
     </form>
 
-{% endblock 'Section' %}
+{% endblock body_block %}

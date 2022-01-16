@@ -14,7 +14,7 @@
 
     <a href={% url 'Mascotas' %}>Ver lista de mascotas</a> 
     
-    <form action={% url 'Crear_mascota' %} method="POST">
+    <form action={% url 'Crear_mascota' idmascota %} method="POST">
         {% csrf_token %}
         <table>
             {{formulario1.as_table}}

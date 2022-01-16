@@ -4,7 +4,7 @@
 {% endblock head_block %}
 
 {% block body_block %}
-    <h1>Mascotas</h1> <a href={% url 'Crear_mascota' %}>Crear mascota</a>
+    <h1>Mascotas</h1> <a href={% url 'Crear_mascota' 0 %}>Crear mascota</a>
 
     <form action={% url 'Mascotas' %} method="GET">
         <input type="text" name='nombre' placeholder="Nombre a buscar..."/>
@@ -15,7 +15,7 @@
     {% if mascotas %}
         {% for mascota in mascotas %}
             <li>
-                {{mascota}}<br><a href={% url 'Crear_mascota' mascotas.id %}> Editar</a><br><a href={% url 'Eliminar_mascota' mascotas.id %}> Eliminar</a>
+                {{mascota}}<br><a href={% url 'Crear_mascota' mascota.id %}> Editar</a> | <a href={% url 'Eliminar_mascota' mascota.id %}> Eliminar</a>
             </li>
         {% endfor %}
     {% elif error%}

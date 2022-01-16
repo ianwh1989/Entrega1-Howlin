@@ -1,0 +1,14 @@
+{% extends 'AppEntrega1/inicio.html' %}
+{% block head_block %}
+    <title>Detalle vecino</title>
+{% endblock head_block %}
+
+{% block body_block %}
+    <h1>Detalles Vecino</h1>
+    
+    <p>Nombre: <i> {{object.nombre}} </i></p>
+    <p>Apellido: <i> {{object.apellido}} </i></p>
+    <p>Numero: <i> {{object.numero}} </i></p>   
+    <a href={% url 'Vecinos' %}>Volver al listado de vecinos</a>
+
+{% endblock body_block %}

@@ -5,13 +5,15 @@
 
 {% block body_block %}
     <h1>Crear Vecino</h1>
-    <a href={% url 'Vecinos' %}>Ver lista de vecinos</a> 
+    <a href={% url 'Vecinos' %}>Volver al listado de vecinos</a> 
     <form action={% url 'Crear_vecino' %} method="POST">
         {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Crear">
         {% comment %} <table>
             {{formulario2.as_table}}
         </table> {% endcomment %}
-        <p>Nombre: 
+        {% comment %} <p>Nombre: 
             <input type="text" name="nombre">
         </p>
         <p>Apellido: 
@@ -20,7 +22,7 @@
         <p> Numero: 
             <input type="numero" name="numero">
         </p>
-        <input type="submit" value="Crear"/>
+        <input type="submit" value="Crear"/> {% endcomment %}
     </form>
 
 {% endblock body_block %}

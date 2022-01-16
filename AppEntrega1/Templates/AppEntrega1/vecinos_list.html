@@ -1,0 +1,33 @@
+{% extends 'AppEntrega1/inicio.html' %}
+{% block head_block %}
+    <title>Vecinos</title>
+{% endblock head_block %}
+
+{% block body_block %}
+    <h1>Vecinos</h1><a href={% url 'Crear_vecino' %}>Crear vecino</a> <br>
+
+    {% comment %} <form action={% url 'Vecinos' %} method="GET">
+        <input type="text" name='nombre' placeholder="Nombre a buscar..."/>
+        <input type="submit" value="Buscar"/>
+    </form> {% endcomment %}
+    
+    <br>
+    <ul>
+    {% if object_list %}    
+        {% for vecino in object_list %}
+            <li>
+                {{vecino}}
+                <br><a href={% url 'Detalle_vecino' vecino.id %}>Ver </a> | 
+                <a href={% url 'Modificar_vecino' vecino.id %}> Editar</a> | 
+                <a href={% url 'Eliminar_vecino' vecino.id %}> Eliminar</a>
+                {% comment %} <br><p> Nombre del vecino: {{vecino.nombre}} {{vecino.apellido}} </p> {% endcomment %}
+            </li>
+        {% endfor %}    
+    {% elif error%}
+        <h3>{{error}}</h3>
+    {% else %}
+        <h3>No se encontraron vecinos con ese nombre</h3>
+    {% endif %}
+    </ul>
+
+{% endblock body_block %}
