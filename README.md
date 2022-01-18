@@ -24,8 +24,10 @@ No funciona:
 Correcciones:
 - Se arreglo el login. Ahora se muestra.
 - Se muestran las mascotas
-- se arreglaron los vecinos. Clases basadas en vistas. Se pueden ver detalles y eliminar. A la hora de editar se crea uno nuevo en vez de editar.
-
+- se arreglaron los vecinos. Clases basadas en vistas. Se pueden ver detalles, editar y eliminar. (se implementó la clase basada en vista de edición de datos para vecinos)
+- se agrego boton de registro
+- apartado de mascotas funciona.
+- al avatar se le agrego una imagen default.
 
 
 Video explicativo:

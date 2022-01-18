@@ -29,6 +29,6 @@ class Casa(models.Model):
 
 class Avatar(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    avatar = models.ImageField(upload_to='avatares', null=True, blank=True)
+    avatar = models.ImageField(upload_to='avatares', default='/imagenDefault.png', null=True, blank=True)
     
     

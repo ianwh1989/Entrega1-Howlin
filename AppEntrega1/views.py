@@ -41,6 +41,7 @@ def lista_casas(request):
             
     return render(request, 'AppEntrega1/lista_casas.html', {'casas': casas, 'error': error})
 
+@login_required
 def crear_casa(request, id):
     id_casa = 0
     try:
@@ -92,6 +93,7 @@ def lista_mascotas(request):
             
     return render(request, 'AppEntrega1/lista_mascotas.html', {'mascotas': mascotas, 'error': error})
 
+@login_required
 def crear_mascota(request, id):
     id_mascota = 0
     try:
@@ -225,7 +227,7 @@ def register_request(request):
         if form.is_valid():
             username = form.cleaned_data.get('username')
             form.save()
-            return render(request, 'AppEntrega1/inicio.html', {'tiene_mensaje': True, 'mensaje': f'Se creo el {username}' })
+            return render(request, 'AppEntrega1/inicio.html', {'tiene_mensaje': True, 'mensaje': f'Se creo el {username}', 'url_avatar': avatar.avatar })
     
     form = RegistroUsuarioForm()
     
@@ -261,17 +263,23 @@ def editar_user(request):
 def editar_avatar(request):
     
     usuario = request.user
-    
+        
     if request.method == 'POST':
         form = AvatarForm(request.POST, request.FILES)
         
         if form.is_valid():
             
             # avatar = Avatar(user=usuario, avatar=form.cleaned_data['avatar'])
-            
-            avatar = Avatar.objects.get(user=usuario)
-            avatar.avatar = form.cleaned_data['avatar']
-            avatar.save()
+            try:
+                avatar = Avatar.objects.get(user=usuario)
+                avatar.avatar = form.cleaned_data['avatar']
+                avatar.save()
+            except:
+                avatar = Avatar.objects.get()
+                avatar.avatar = form.cleaned_data['avatar']
+                avatar.user = usuario
+                avatar.save()
+                
             
             return render(request, 'AppEntrega1/inicio.html',
                           {'tiene_mensaje': True, 'mensaje': f'Se cargo correctamente el avatar.', 'url_avatar': avatar.avatar.url})
